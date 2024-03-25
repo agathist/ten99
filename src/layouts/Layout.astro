@@ -7,6 +7,33 @@ type Props = {
 const DEFAULT_DESCRIPTION =
   'Ten99.dev is the place for software engineers who love to work on contract to connect with other contractors, find community, build teams, exchange work, share advice, and thrive independently and together.'
 
+// TODO: I have no clue what I'm doing with SEO
+const KEYWORDS = [
+  'software engineer',
+  'software developer',
+  'software contractor',
+  'software freelancer',
+  'freelance software engineer',
+  'freelance software developer',
+  'freelance frontend developer',
+  'freelance backend developer',
+  'freelance mobile developer',
+  'independent software engineer',
+  'independent software developer',
+  'independent frontend developer',
+  'independent backend developer',
+  'independent mobile developer',
+  'software engineer contractor',
+  'software developer contractor',
+  'frontend developer contractor',
+  'backend developer contractor',
+  'mobile developer contractor',
+  'software freelance community',
+  'tech freelance community',
+  'software contractor community',
+  'tech contractor community',
+]
+
 const { description = DEFAULT_DESCRIPTION, title } = Astro.props
 ---
 
@@ -14,11 +41,34 @@ const { description = DEFAULT_DESCRIPTION, title } = Astro.props
 <html class="h-full" lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={KEYWORDS.join(', ')} />
+
+    <!-- OpenGraph -->
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Ten99.dev" />
+    <meta property="og:image" content="https://ten99.dev/images/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:domain" content="ten99.dev" />
+    <meta name="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content="https://ten99.dev/images/og-image.png"
+    />
+
+    <!-- Miscellany -->
+    <meta name="apple-mobile-web-app-title" content="Ten99.dev" />
   </head>
   <body class="flex min-h-full flex-col">
     <slot />
