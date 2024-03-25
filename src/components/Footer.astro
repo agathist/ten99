@@ -1,0 +1,23 @@
+---
+import Container from './Container.astro'
+import Link from './Link.astro'
+---
+
+<footer class="bg-white py-8">
+  <Container>
+    <div class="text-center">
+      &copy<span id="copyright"></span> Ten99.dev brought to you by <Link
+        href="https://agath.ist">Agathist</Link
+      >. All Rights Reserved.
+    </div>
+  </Container>
+</footer>
+
+<script>
+  const el = document.getElementById('copyright')
+  const year = new Date().getFullYear()
+
+  if (el) {
+    el.innerText = String(year)
+  }
+</script>

@@ -1,0 +1,38 @@
+---
+import Link from './Link.astro'
+
+const handleSubmit =
+  "window.open('https://buttondown.email/ten99dev', 'popupwindow')"
+---
+
+<form
+  action="https://buttondown.email/api/emails/embed-subscribe/ten99dev"
+  method="post"
+  target="popupwindow"
+  onsubmit={handleSubmit}
+  class="embeddable-buttondown-form flex w-full flex-col gap-2"
+>
+  <div class="flex flex-col gap-1">
+    <label class="text-lg font-bold" for="bd-email">Enter your email</label>
+    <input
+      class="w-full rounded-md border border-stone-200 px-3 py-2 text-sm"
+      id="bd-email"
+      name="email"
+      placeholder="your-email@example.com"
+      required
+      type="email"
+    />
+  </div>
+
+  <input
+    class="rounded-md bg-orange-500 px-3 py-2 leading-tight text-white transition-all hover:cursor-pointer hover:bg-orange-600"
+    type="submit"
+    value="Subscribe"
+  />
+
+  <p>
+    <Link href="https://buttondown.email/refer/ten99dev" target="_blank">
+      Powered by Buttondown
+    </Link>
+  </p>
+</form>
